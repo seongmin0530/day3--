@@ -1,7 +1,6 @@
-#Q 6.2
-guess_me = 7
-number = 1
-while True:
+#Q 6.3
+guess_me = 5
+for number in range(10):
     if number < guess_me:
         print('Too low')
     elif number > guess_me:
@@ -10,4 +9,3 @@ while True:
     else:                           # guess_me == number
         print('found it!')
         break
-    number += 1
