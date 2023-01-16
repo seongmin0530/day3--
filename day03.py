@@ -1,19 +1,10 @@
-#while
-#*******************************************************************************#
-#구구단
-#*******************************************************************************#
-while True:
-
-    dan = int(input('Dan(0 to qout) : '))
-    if dan == 0:
-        break                           #가장 가까운 반복문 탈출
-    elif 0 < dan < 10:
-        i = 1
-        while i < 10:
-            print('{0} * {1} = {2}'.format(dan, i, dan*i))
-            i = i+1
-
-    else:
-        print("1~9사이의 값을 입력하세요.")
-
-
+numbers = [1,3,5]
+position = 0
+while position < len(numbers):
+    number = numbers[position]
+    if number % 2 ==0:
+        print('Found even number',number)
+        break
+    position +=1
+else:
+        print('No even number found')
