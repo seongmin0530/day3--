@@ -1,12 +1,13 @@
-# 구구단 by for문
+# prime number by 'for'
 
-while True:
-    dan = int(input('dan(0 to quit) : '))
+number = int(input('정수 입력.: '))
 
-    if dan == 0:
-        break
-    if 1< dan < 10:
-        for i in range(1,10):
-            print('{0} * {1} = {2}'.format(dan,i,dan*i))
-    else:
-        print('2에서 9사이의 값을 입력하세요.')
+count = 0
+for i in range(1, number+1):
+    if number % i == 0:
+        count +=1
+if count == 2:
+    print(f'{number} is prime Number.')
+else:
+    print(f'{number} is not prime Number.')
+
