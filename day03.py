@@ -1,33 +1,19 @@
-#******************************************************#
-#Q1
-#******************************************************#
-song = """When an ell grabs your arm,
-...And it causes great harm,
-...that's -a moray"""
+#while
+#*******************************************************************************#
+#구구단
+#*******************************************************************************#
+while True:
 
-print(song.replace(' m',' M'))      #My answer
+    dan = int(input('Dan(0 to qout) : '))
+    if dan == 0:
+        break                           #가장 가까운 반복문 탈출
+    elif 0 < dan < 10:
+        i = 1
+        while i < 10:
+            print('{0} * {1} = {2}'.format(dan, i, dan*i))
+            i = i+1
+
+    else:
+        print("1~9사이의 값을 입력하세요.")
 
 
-#Answer
-song_list = song.split()
-print(song_list)
-song_list[13] = song_list[13].title()
-song_string = ' '.join(song_list)
-print(song_string)
-
-#******************************************************#
-#Q2
-#******************************************************#
-questions = ["Q1","Q2","Q3"]
-answer = ["A1","A2","A3"]
-print(f'Q:{questions[0]}')
-print(f'A:{answer[0]}')
-
-#******************************************************#
-#Q3
-#******************************************************#
-a = 'roast beef'
-b = 'ham'
-c = 'head'
-d = 'clam'
-print("My kitty cat likes %s,\nMy kitty cat likes %s,\nMy kitty cat fell on his %s And now thinks he's a %s" %(a,b,c,d))
