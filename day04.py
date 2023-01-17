@@ -1,18 +1,9 @@
-# list comprehension
+# ex 7-4, 7.5, 7-6, 7-7
+things = ['mozzarella', 'cinderella', 'salmonella']
+print("7-5's Answer :",things[-2].title())
 
+print("7-6's Answer :",things[-3].upper())
 
-#*********************************************************************************************************************
-#기존 방식
-#*********************************************************************************************************************
-odd_lists = []
-for i in range(1,11):
-    if i % 2 == 1:
-        odd_lists.append(i)
-print(odd_lists,type(odd_lists))
+print(f"7-7's AnswerDelete the {things.pop()} from things, and get Nobel prize")
+print(things)
 
-#*********************************************************************************************************************
-#comprehension
-#*********************************************************************************************************************
-odd_lists = [number for number in range(1,11) if number % 2 == 1]  #list comprehension
-#odd_tuples = (number for number in range(1,11) if number % 2 == 1) tuple comprehension은 존재하지 않으므로 사용할 수 없음
-print(odd_lists,type(odd_lists))
