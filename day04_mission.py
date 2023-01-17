@@ -1,5 +1,3 @@
-# 8-10
-squares = {key : key**2 for key in range(10)}
-print(squares)
-
-
+# 8-11
+for i in (value for value in range(10)):
+    print('got ', i)
