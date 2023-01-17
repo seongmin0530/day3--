@@ -1,3 +1,3 @@
-# 8-11
-for i in (value for value in range(10)):
-    print('got ', i)
+# 8-12
+a = dict(zip(('optimist', 'pessimist', 'troll',),('The glass is half full', 'The glass is half empty', 'How did you get a glass')))
+print(a)
