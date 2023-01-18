@@ -1,54 +1,35 @@
 # function
 
-import random
-
-def make_person():
+def answer():
     """
-    인원수, 나이 생성하는 함수
-    :return: 인원수, 각각의 나이 리스트
+    60 프린트하는 함수
+    :return:
     """
-    person_number = random.randint(0, 10)
-    ages = [random.randint(1, 50) for person in range(1, person_number+1)]
-    return person_number, ages
+    print(60)
 
 
-def calculate_free(args):
+def call_func(func):
     """
-    놀이공원 요금 계산 프로그램
-    :param args: ages
-    :return: {지불할 총 입장료, 어른 수, 아이 수}
+    매개변수로 함수를 넘겨받아 실행시키는 함수
+    :param func:다른 함수
+    :return:
     """
-    total = 0
-    adults = 0
-    kids = 0
-    for age in args:
-        if 19 <= age:
-            total = total + 10000
-            adults = adults + 1
-        elif 1 <= age <= 19:
-            total = total + 3000
-            kids = kids + 1
-        else:
-            return False
-
-    return {'total':total, 'num_of_kids':kids, 'num_of_adults': adults}
+    func()
 
 
-person_number, ages = make_person()
-result = calculate_free(ages)
-print (f"환영합니다.\n총 {person_number}명이 입장하셨습니다.\n그 중 성인은 {result['num_of_adults']}명, 학생은 {result['num_of_kids']}명이며,\n총 입장료는 {result['total']}원 입니다.")
+def subtract(num1, num2):
+    print(num1-num2)
 
 
+def run_func(func, arg1, arg2):
+    """
+    함수를 매개변수로 받아 함수 안에서 해당 함수를 실행
+    :param func: 함수
+    :param arg1: 정수 값
+    :param arg2: 정수 값
+    :return:
+    """
+    func(arg1, arg2)
 
 
-
-# def do_nothing():
-#     pass
-#
-#
-# do_nothing()
-# print(do_nothing())
-
-# mamamoo = ['화사', '솔라', '휘인', '문별']
-# print(mamamoo.remove('문별'))
-# print(mamamoo)
+run_func(subtract, 99, 88)
