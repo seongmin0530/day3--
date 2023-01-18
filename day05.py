@@ -8,7 +8,7 @@ def make_person():
     :return: 인원수, 각각의 나이 리스트
     """
     person_number = random.randint(0, 10)
-    ages = [random.randint(1, 50) for age in range(person_number)]
+    ages = [random.randint(1, 50) for person in range(1, person_number+1)]
     return person_number, ages
 
 
@@ -16,7 +16,7 @@ def calculate_free(args):
     """
     놀이공원 요금 계산 프로그램
     :param args: ages
-    :return: 지불할 총 입장료, 어른 수, 아이 수
+    :return: {지불할 총 입장료, 어른 수, 아이 수}
     """
     total = 0
     adults = 0
@@ -30,12 +30,13 @@ def calculate_free(args):
             kids = kids + 1
         else:
             return False
-    return total, kids, adults
+
+    return {'total':total, 'num_of_kids':kids, 'num_of_adults': adults}
 
 
 person_number, ages = make_person()
-total, kids, adults = calculate_free(ages)
-print (f'환영합니다.\n총 {person_number}명이 입장하셨습니다.\n그 중 성인은 {adults}명, 학생은 {kids}명이며,\n총 입장료는 {total}원 입니다.')
+result = calculate_free(ages)
+print (f"환영합니다.\n총 {person_number}명이 입장하셨습니다.\n그 중 성인은 {result['num_of_adults']}명, 학생은 {result['num_of_kids']}명이며,\n총 입장료는 {result['total']}원 입니다.")
 
 
 
