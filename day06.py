@@ -14,6 +14,10 @@ def sub_int(x, y):
     return x - y
 
 
+@document_info
+def mul(x):
+    return x * x
 
 
 print(sub_int(7, 3))
+print(mul(4))
