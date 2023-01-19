@@ -1,19 +1,29 @@
-# global variable
+# recursion
 
-g = 'global variable'
+def factorial_iter(n):
+    """
+    반복문을 사용한 팩토리얼 함수
+    :param n: n!
+    :return: integer 팩토리얼 계산 결과 값
+    """
+    result = 1
+    for k in range(1,n+1):
+        result = result * k
+    return result
 
-def change_print_global():
-    g = 'local variable'
-    return g
 
-def print_global():
-    global g
-    g = 'global variable in function'
-    return g
+def factorial_recu(n):
+    """
+    재귀 함수를 사용한 팩토리얼 계산 함수
+    :param n: n!
+    :return: 자기 자신을 호출 또는 1
+    """
+    if n != 1:
+        return n * factorial_iter(n-1)
+    elif n == 1:
+        return 1
 
 
-change_print_global()
-print_global()
-print(g)
-print(globals())
-print(__name__)
+print(factorial_iter(5))  # 반복문을 이용한 factorial 함수 결과 출력
+print(factorial_recu(5))  # 재귀 함수를 이용한 factorial 함수 결과 출력
+
