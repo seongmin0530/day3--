@@ -1,16 +1,19 @@
 # generator
 
-def a():  # generator
-    yield 1  # 반환한 이후에도 종료되지 않고 계속 반환
-    yield 2
-    yield 3
+def sub_int(x, y):
+    return x - y
+
+def document_info(func):
+    def new_function(*args, **kwargs):
+        print('실행중인 함수: ',func.__name__)
+        print('위치 기반 인수들 :', args)
+        print('키워드 기반 인수들 :', kwargs)
+        result = func(*args, **kwargs)
+        print('실행결과: ', result)
+    return new_function
 
 
-def b():
-    return 1  # return후 종료
-    return 2  # 유효하지 않음(실행되지 않음)
-    return 3  # 유효하지 않음(실행되지 않음)
-
-print(a())
-for i in a():
-    print(i)
+print(sub_int(7, 3))
+info_sub_int = document_info(sub_int)
+r = info_sub_int(7, 3)
+print(r)
