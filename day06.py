@@ -1,8 +1,4 @@
-# generator
-
-def sub_int(x, y):
-    return x - y
-
+# decotator
 def document_info(func):
     def new_function(*args, **kwargs):
         print('실행중인 함수: ',func.__name__)
@@ -13,7 +9,11 @@ def document_info(func):
     return new_function
 
 
+@document_info
+def sub_int(x, y):
+    return x - y
+
+
+
+
 print(sub_int(7, 3))
-info_sub_int = document_info(sub_int)
-r = info_sub_int(7, 3)
-print(r)
