@@ -1,41 +1,50 @@
-#class_setter_getter
+# class_duck typing
+import math
 
-class Duck():  #완전한 private 구현이 아님 그저 흉내
-	color = 'white'
 
-	def __init__(self, input_name):
-		self.hidden_name = input_name
+class Shape:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
-	@staticmethod
-	def test():
-		print('staticmethod')
+    def get_area(self):
+        print('도형의 면적을 출력합니다')
 
-	@classmethod
-	def ace(cls):
-		print('classmethod')
 
-	def get_name(self):              # 값을 꺼냄
-		print('inside the getter')
-		return self.hidden_name
+class Circle(Shape):
+    def __init__(self, x, y, radius):
+        super().__init__(x, y)
+        self.radius = radius
 
-	def set_name(self, input_name):  #값을 저장
-		print('inside the setter')
-		self.hidden_name = input_name
+    def get_area(self):
+        return math.pi * self.radius * self.radius
 
-	name = property(get_name, set_name)
 
-don = Duck('Donald')
-# # print(don.get_name())
-# print(don.name)  #get_name처럼 동작
-# #don.set_name('Donna')
-# don.name = 'Donna'  #set_name처럼 동작
-# don.hidden_name = 'kiminha'  # 직접 접근이 가능할 것을 확인할 수 있음.
-# #print(don.get_name())
-# print(don.name)
-print(Duck.color, don.color, '\n\n')
-don.color = 'red'
-print(Duck.color, don.color, '\n\n')
-don2 = Duck('rola')
-print(Duck.color, don.color, don2.color)
+class Cylinder(Circle):
+    def __init__(self, x, y, radius, height):
+        super().__init__(x, y, radius)
+        self.height = height
 
-print(f'클래스 메서드 :{Duck.ace()}, {don.ace()}\n정적 메서드 :{Duck.test()}, {don.test()}')
+    def get_area(self):  # get_volume
+        return super().get_area() * self.height
+
+
+class Rectangle(Shape):
+    def __init__(self, x, y, width, length):
+        super().__init__(x, y)
+        self.width = width
+        self.length = length
+
+    def get_area(self):
+        return self.width * self.length
+
+
+cy1 = Cylinder(20, 20, 10.0, 2)
+c1 = Circle(100, 100, 10.0)
+c2 = Circle(50, 50, 2.0)
+r1 = Rectangle(100, 50, 5, 2)
+
+print(cy1.get_area())
+print(f'사각형의 좌표는 x:{r1.x}, y:{r1.y}이고 넓이는 {r1.get_area()}입니다')
+print(c1.get_area())
+print(c2.get_area())
