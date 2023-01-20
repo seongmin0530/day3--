@@ -1,8 +1,10 @@
-# 10.2
-class Thing2:
+# 10.3
+
+class Thing3:
     def __init__(self, letter):
         self.letter = letter
+        print('Thing3 class object is Created')
 
 
-test = Thing2('abc')
+test = Thing3('xyz')
 print(test.letter)
