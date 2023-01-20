@@ -1,10 +1,10 @@
-# 10.3
+# 10.4
+class Element:
+    def __init__(self, name, symbol, number):
+        self.name = name
+        self.symbol = symbol
+        self.number = number
 
-class Thing3:
-    def __init__(self, letter):
-        self.letter = letter
-        print('Thing3 class object is Created')
 
-
-test = Thing3('xyz')
-print(test.letter)
+test = Element('Hydrogen', 'H', 1)
+print(test.name, test.symbol, test.number)
