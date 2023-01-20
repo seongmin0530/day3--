@@ -1,23 +1,31 @@
-# 10. 9
-class Bear:
-    def eats(self):
-        return 'berries, (Bear)'
+# 10. 10
+class Laser:
+    def does(self):
+        return 'disintegrate (Laser)'
 
 
-class Rabbit:
-    def eats(self):
-        return 'clover, (Rabbit)'
+class Claw:
+    def does(self):
+        return 'crush (Claw)'
 
 
-class Octothorpe:
+class SmartPhone:
+    def does(self):
+        return 'ring (SmartPhone)'
 
-    def eats(self):
-        return 'campers, (Octothorpe)'
+
+class Robot():
+    def __init__(self, laser, claw, smartphone):
+        self.laser = laser.does()
+        self.claw = claw.does()
+        self.smartphone = smartphone.does()
+
+    def does(self):
+        print(f'Robot can do {self.laser}, {self.claw}, {self.smartphone}.')
 
 
-bear = Bear()
-rabbit = Rabbit()
-octothorpe = Octothorpe()
-print(bear.eats())
-print(rabbit.eats())
-print(octothorpe.eats())
+a_laser = Laser()
+a_claw = Claw()
+a_smartphone = SmartPhone()
+robot = Robot(a_laser, a_claw, a_smartphone)
+robot.does()
