@@ -1,18 +1,24 @@
-#class_mix in
+#class_setter_getter
 
-class PrettyMixin():
+class Duck():  #완전한 private 구현이 아님 그저 흉내
+	def __init__(self, input_name):
+		self.hidden_name = input_name
 
-    def dump(self):         #특정 기능만 수행할 수 있게끔....?
-        import pprint
-        pprint.pprint(vars(self))
+	def get_name(self):              # 값을 꺼냄
+		print('inside the getter')
+		return self.hidden_name
 
+	def set_name(self, input_name):  #값을 저장
+		print('inside the setter')
+		self.hidden_name = input_name
 
-class Thing(PrettyMixin):
-    pass
+	name = property(get_name, set_name)
 
-
-t = Thing()
-t.time_print()
-t.name = "kkkk"
-
-
+don = Duck('Donald')
+# print(don.get_name())
+print(don.name)  #get_name처럼 동작
+#don.set_name('Donna')
+don.name = 'Donna'  #set_name처럼 동작
+don.hidden_name = 'kiminha'  # 직접 접근이 가능할 것을 확인할 수 있음.
+#print(don.get_name())
+print(don.name)
