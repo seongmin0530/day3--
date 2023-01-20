@@ -1,4 +1,4 @@
-# 10.4
+# 10.5
 class Element:
     def __init__(self, name, symbol, number):
         self.name = name
@@ -6,5 +6,6 @@ class Element:
         self.number = number
 
 
-test = Element('Hydrogen', 'H', 1)
-print(test.name, test.symbol, test.number)
+el_dict = {'name': 'Hydrogen', 'symbol': 'H', 'number': 1}
+Hydrogen = Element(**el_dict)
+print(Hydrogen.name, Hydrogen.symbol, Hydrogen.number)
